@@ -1,0 +1,112 @@
+<section id="home">
+	<div class="row my-navbar">
+		<div class="col-xs-2">
+			<md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="toggleLeft()">
+				<md-icon class="setting"><i class="fa fa-bars"></i></md-icon>
+			</md-button>
+		</div>
+		<div class="col-xs-8">
+			<span class="logo-text" ng-click="vm.loadHomePage()">Vivu</span>
+		</div>
+		<div class="col-xs-2">
+			<div class="setting">
+				<span ng-click="vm.loadCartPage()">
+					<span class="cart-amount-product">{{$root.totalAmount}}</span>
+				<i class="fa fa-shopping-cart"></i>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="containter">
+		<div>
+			<!--left side bar content-->
+			<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+				<md-toolbar class="md-theme-indigo">
+					<div class="md-toolbar-tools row">
+						<div class="col-xs-4">
+							<img src="img/avatar.jpg" class="img-responsive img-thumbnail avatar">
+						</div>
+						<div class="col-xs-6">
+							<span>Lê Văn Ninh</span>
+						</div>
+						<div class="col-xs-2">
+
+							<md-icon ng-click="toggleLeft()">
+								<i class="fa fa-close"></i>
+							</md-icon>
+						</div>
+					</div>
+				</md-toolbar>
+				<md-content layout-margin>
+					<md-list>
+						<md-list-item class="md-2-line" ui-sref="home.menu" ng-click="toggleLeft()">
+							<h3><i class="md-avatar fa fa-home"></i></h3>
+							<div class="md-list-item-text">
+								<h3>Trang chủ</h3>
+							</div>
+						</md-list-item>
+						<md-list-item class="md-2-line" ui-sref="home.addCar" ng-click="toggleLeft()">
+							<h3><i class="md-avatar fa fa-car"></i></h3>
+							<div class="md-list-item-text">
+								<h3>Thêm xe</h3>
+							</div>
+						</md-list-item>
+						<md-list-item class="md-2-line" ui-sref="home.checkCar" ng-click="toggleLeft()">
+							<h3><i class="md-avatar fa fa-car"></i></h3>
+							<div class="md-list-item-text">
+								<h3>Kiểm tra xe</h3>
+							</div>
+						</md-list-item>
+						<md-list-item class="md-2-line" ui-sref="home.accessory" ng-click="toggleLeft()">
+							<h3>
+								<i class="md-avatar fa car-icon-tire"></i>
+							</h3>
+							<div class="md-list-item-text">
+								<h3>Tìm kiếm phụ tùng</h3>
+							</div>
+						</md-list-item>
+						<md-list-item class="md-2-line" ui-sref="home.service" ng-click="toggleLeft()">
+							<h3>
+								<i class="md-avatar fa fa-wrench"></i>
+							</h3>
+							<div class="md-list-item-text">
+								<h3>Dịch vụ chăm sóc xe</h3>
+							</div>
+						</md-list-item>
+						<md-list-item class="md-2-line" ui-sref="home.tire" ng-click="toggleLeft()">
+							<h3>
+								<i class="md-avatar fa fa-shopping-cart"></i>
+							</h3>
+							<div class="md-list-item-text">
+								<h3>Đặt hàng</h3>
+							</div>
+						</md-list-item>
+						<md-list-item class="md-2-line" ui-sref="home.store" ng-click="toggleLeft()">
+							<h3>
+								<i class="md-avatar fa fa-archive"></i>
+							</h3>
+							<div class="md-list-item-text">
+								<h3>Cửa hàng</h3>
+							</div>
+						</md-list-item>
+					</md-list>
+
+
+					<div class="pull-right">
+						<md-button ng-click="vm.logout()" class="md-accent">
+							Đăng xuất
+						</md-button>
+					</div>
+				</md-content>
+				<!--left side bar content-->
+			</md-sidenav>
+		</div>
+
+		<!--main content-->
+		<div ui-view></div>
+
+		<!--end main content-->
+
+	</div>
+
+</section>

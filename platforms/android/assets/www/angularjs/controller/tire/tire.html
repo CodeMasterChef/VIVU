@@ -1,0 +1,65 @@
+<div id="tire">
+	<h3 class="text-center">Danh sách vỏ xe</h3>
+    <!-- search -->
+	<div class="row  search">
+        <md-input-container class="md-block inputSearch" flex-gt-sm>
+            <label>Nhập thông tin tìm kiếm</label>
+            <input ng-model="tireNameFil">
+        </md-input-container>
+
+		<!--<input class="form-control" type="text" ng-model="tireNameFil" placeholder="Nhập tên vỏ xe...." />-->
+	</div>
+    <!-- list products -->
+	<md-card ng-repeat="tire in  vm.tireList | filter:tireNameFil">
+		<md-card-title>
+			<md-card-title-text>
+				<span class="md-headline">Vỏ xe {{tire.trademark}} {{tire.name}}</span>
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content layout="row">
+			<div class="col-xs-10 no-padding">
+				<div class="row tireContent">
+					<div class="col-xs-6">
+						<img class="img-responsive" ng-src="{{tire.image}}" >
+					</div>
+					<div class="col-xs-6 info">
+						<div><span class="bold">Nguồn gốc:</span> {{tire.origin}}</div>
+                        <div><span class="bold">Chỉ số:</span> {{tire.indices}}</div>
+						<div><span class="bold">Độ bám đường:</span> {{tire.roadGrip}}</div>
+						<div><span class="bold">Giá:</span> {{tire.price}}</div>
+                        <span class="link" ng-click="vm.showDetails(tire)">Chi tiết...</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-2 pull-right no-padding">
+				<md-card-actions layout="column" class="no-padding no-margin">
+					<md-button class="md-icon-button buttonIcon padTop0 " aria-label="Favorite">
+						<md-icon><i class="fa fa-heart btnSize "></i></md-icon>
+					</md-button>
+					<md-button class="md-icon-button buttonIcon" aria-label="Favorite">
+						<md-icon><i class="fa fa-share btnSize"></i></md-icon>
+					</md-button>
+					<md-button class="md-icon-button buttonIcon" aria-label="Favorite" ng-click="vm.addProduct(tire)">
+						<md-icon><i class="fa fa-shopping-cart btnSize"></i></md-icon>
+					</md-button>
+				</md-card-actions>
+			</div>
+
+		</md-card-content>
+	</md-card>
+	<div class="row text-center">
+		<span class="notFound" ng-show="!(vm.tireList | filter:tireNameFil).length">Không có dữ liệu</span>
+	</div>
+	<!--dialog-->
+
+	<!--<div class="dialog-demo-content" layout="row" layout-wrap layout-margin layout-align="center">
+    <md-button class="md-primary md-raised" ng-click="vm.showAlert($event)"   >
+      Chi tiết...
+    </md-button>
+   
+  </div>-->
+
+
+
+
+</div>

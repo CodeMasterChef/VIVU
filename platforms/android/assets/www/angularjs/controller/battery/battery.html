@@ -1,0 +1,11 @@
+<navbar-directive></navbar-directive>
+<div id="oil" class="padding-top-for-page">
+	<div class="container">
+		<item-list-directive all-resources="vm.allResourcesForBattery"></item-list-directive>
+		<ul uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" ng-change="vm.pageChanged()" previous-text="Trước"
+			next-text="Sau" items-per-page="vm.itemsPerPage"></ul>
+	</div>
+
+</div>
+
+<footer-directive></footer-directive>

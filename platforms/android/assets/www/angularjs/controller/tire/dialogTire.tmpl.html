@@ -1,0 +1,96 @@
+﻿<md-dialog aria-label="Vỏ Xe">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Chi tiết vỏ xe</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog"><span style="font-weight:bold">x</span></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>Vỏ xe {{tire.trademark}} {{tire.name}}</h2>
+                <h2>
+                    <img class="img-responsive" ng-src="{{tire.image}}">
+
+                </h2>
+                <p>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Thông số kỹ thuật</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nguồn gốc:</td>
+                                <td>{{tire.origin}}</td>
+                            </tr>
+                            <tr>
+                                <td>Chỉ số:</td>
+                                <td>{{tire.indices}}</td>
+                            </tr>
+                            <tr>
+                                <td>Độ bám đường:</td>
+                                <td>{{tire.roadGrip}}</td>
+                            </tr>
+                            <tr>
+                                <td>Ngày sản xuất:</td>
+                                <td>{{tire.productionDate}}</td>
+                            </tr>
+                            <tr>
+                                <td>Mẫu gai:</td>
+                                <td>{{tire.treadPattern}}</td>
+                            </tr>
+                            <tr>
+                                <td>Chống ăn mòn:</td>
+                                <td>{{tire.antiCorrosive}}</td>
+                            </tr>
+                            <tr>
+                                <td>Khả năng chống nhiệt:</td>
+                                <td>{{tire.antiHeat}}</td>
+                            </tr>
+                            <tr>
+                                <td>Trọng lượng:</td>
+                                <td>{{tire.weight}}</td>
+                            </tr>
+                            <tr>
+                                <td>Áp suất:</td>
+                                <td>{{tire.pressure}}</td>
+                            </tr>
+                            <tr>
+                                <td>Điều kiện đường:</td>
+                                <td>{{tire.roadCondition}}</td>
+                            </tr>
+                            <tr>
+                                <td>Cấu trúc:</td>
+                                <td>{{tire.structure}}</td>
+                            </tr>
+                            <tr>
+                                <td>Giá:</td>
+                                <td>{{tire.price}}</td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </p>
+
+                <!-- <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="img/mangues.jpg">-->
+
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+
+            <md-button ng-click="hide()" class="pull-right">
+                Đóng
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

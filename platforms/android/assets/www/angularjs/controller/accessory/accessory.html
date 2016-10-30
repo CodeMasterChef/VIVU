@@ -1,0 +1,371 @@
+<div id="accessory">
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab ng-repeat="car in vm.userCarList" label="{{car.trademark}} {{car.model}}" md-on-select="vm.loadTab(car)">
+                <md-content class="md-padding">
+                    <md-checkbox ng-model="vm.checkboxTire">Vỏ</md-checkbox>
+                    <md-checkbox ng-model="vm.checkboxOil">Dầu nhớt</md-checkbox>
+                    <md-checkbox ng-model="vm.checkboxBattery">Ắc quy</md-checkbox>
+                    <md-checkbox ng-model="vm.checkboxWheel">Mâm</md-checkbox>
+                    <div class="row">
+                        <!--tire-->
+                        <div class="col-md-6" ng-repeat="tire in vm.relativeTireList.list" ng-show="vm.checkboxTire">
+                            <md-card>
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Vỏ xe {{tire.trademark}} {{tire.name}}</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-content layout="row">
+                                    <div class="col-xs-10">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <img class="img-responsive" ng-src="{{tire.image}}">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div>Cửa hàng: <a ui-sref="home.store">ThanhTam Auto</a></div>
+                                                <div>Chỉ số: {{tire.indices}}</div>
+                                                <div>Mẫu gai: {{tire.treadPattern}}</div>
+                                                <div>Nguồn gốc: {{tire.origin}}</div>
+                                                <div>Giá: {{tire.price}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-heart"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-share"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-shopping-cart" ng-click="vm.addShoppingCart(tire.id, tire.productTypeId)"></i></md-icon>
+                                            </md-button>
+                                    </div>
+
+                                </md-card-content>
+                            </md-card>
+                        </div>
+                        <!--end of tire-->
+
+                        <!--oil-->
+
+                        <div class="col-md-6" ng-repeat="oil in vm.relativeOilList.list" ng-show="vm.checkboxOil">
+                            <md-card>
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Dầu nhớt {{oil.trademark}} {{oil.name}}</span>
+
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-content layout="row">
+                                    <div class="col-xs-10">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <img class="img-responsive" ng-src="{{oil.image}}">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                 <div>Cửa hàng: <a ui-sref="home.store">ThanhTam Auto</a></div>
+                                                <div>ACEA: {{oil.acea}}</div>
+                                                <div>API: {{oil.api}}</div>
+                                                <div>JASO: {{oil.jaso}}</div>
+                                                <div>SAE: {{oil.sae}}</div>
+                                                <div>Nguồn gốc: {{oil.origin}}</div>
+                                                <div>Giá: {{oil.price}}</div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-heart"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-share"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-shopping-cart" ng-click="vm.addShoppingCart(oil.id, oil.productTypeId)"></i></md-icon>
+                                            </md-button>
+                                    </div>
+
+                                </md-card-content>
+                            </md-card>
+                        </div>
+                        <!--end of oil-->
+
+                        <!--battery-->
+                        <div class="col-md-6" ng-repeat="battery in vm.relativeBatteryList.list" ng-show="vm.checkboxBattery">
+                            <md-card>
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Ắc quy {{battery.name}}</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-content layout="row">
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <img class="img-responsive" ng-src="{{battery.image}}">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                 <div>Cửa hàng: <a ui-sref="home.store">ThanhTam Auto</a></div>
+                                                <div>Dung lượng: {{battery.capacity}}</div>
+                                                <div>Kích thước: {{battery.dimension}}</div>
+                                                <div>Giá: {{battery.price}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-heart"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-share"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-shopping-cart" ng-click="vm.addShoppingCart(battery.id, battery.productTypeId)"></i></md-icon>
+                                            </md-button>
+                                    </div>
+                                </md-card-content>
+                            </md-card>
+                        </div>
+                        <!--end of battery-->
+
+                        <!--wheel-->
+                        <div class="col-md-6" ng-repeat="wheel in vm.relativeWheelList.list" ng-show="vm.checkboxWheel">
+                            <md-card>
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Mâm xe {{wheel.size}}</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-content layout="row">
+                                    <div class="col-xs-10">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <img class="img-responsive" ng-src="{{wheel.image}}">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                 <div>Cửa hàng: <a ui-sref="home.store">ThanhTam Auto</a></div>
+                                                <div>Số lỗ: {{wheel.hole}}</div>
+                                                <div>Giá: {{wheel.price}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-heart"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-share"></i></md-icon>
+                                            </md-button>
+                                            <md-button class="md-icon-button" aria-label="Favorite">
+                                                <md-icon><i class="fa fa-shopping-cart" ng-click="vm.addShoppingCart(wheel.id, wheel.productTypeId)"></i></md-icon>
+                                            </md-button>
+                                    </div>
+
+                                </md-card-content>
+                            </md-card>
+                        </div>
+                        <!--end of wheel-->
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Khác" md-on-select="vm.resetData()">
+                <md-card md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-media>
+                        </md-card-title-media>
+                        <md-card-title-text>
+                            <h3 class="md-headline">Tìm kiếm</h3>
+                            <search-car-directive output-selected-trademark="selectedTrademark" output-selected-model="selectedModel">
+                            </search-car-directive>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-actions>
+                        <div class="container">
+                            <div class="row pull-left">
+                                <md-button class="md-raised md-primary" ng-click="vm.search(selectedTrademark, selectedModel)">Tìm kiếm</md-button>
+                            </div>
+                        </div>
+                    </md-card-actions>
+                    <!--search result-->
+                    <md-content class="md-padding">
+                        <md-checkbox ng-model="vm.checkboxTire">Vỏ</md-checkbox>
+                        <md-checkbox ng-model="vm.checkboxOil">Dầu nhớt</md-checkbox>
+                        <md-checkbox ng-model="vm.checkboxBattery">Ắc quy</md-checkbox>
+                        <md-checkbox ng-model="vm.checkboxWheel">Mâm</md-checkbox>
+                        <div class="row">
+                            <!--tire-->
+                            <div class="col-md-6" ng-repeat="tire in vm.relativeTireList.list" ng-show="vm.checkboxTire">
+                                <md-card>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">Vỏ xe {{tire.trademark}} {{tire.name}}</span>
+                                        </md-card-title-text>
+                                    </md-card-title>
+                                    <md-card-content layout="row">
+                                        <div class="col-xs-10">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <img class="img-responsive" ng-src="{{tire.image}}">
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div>Chỉ số: {{tire.indices}}</div>
+                                                    <div>Mẫu gai: {{tire.treadPattern}}</div>
+                                                    <div>Nguồn gốc: {{tire.origin}}</div>
+                                                    <div>Giá: {{tire.price}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 pull-left">
+                                         
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-heart"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-share"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-shopping-cart"></i></md-icon>
+                                                </md-button>
+                                          
+                                        </div>
+
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+                            <!--end of tire-->
+
+                            <!--oil-->
+
+                            <div class="col-md-6" ng-repeat="oil in vm.relativeOilList.list" ng-show="vm.checkboxOil">
+                                <md-card>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">Dầu nhớt {{oil.trademark}} {{oil.name}}</span>
+
+                                        </md-card-title-text>
+                                    </md-card-title>
+                                    <md-card-content layout="row">
+                                        <div class="col-xs-10">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <img class="img-responsive" ng-src="{{oil.image}}">
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div>ACEA: {{oil.acea}}</div>
+                                                    <div>API: {{oil.api}}</div>
+                                                    <div>JASO: {{oil.jaso}}</div>
+                                                    <div>SAE: {{oil.sae}}</div>
+                                                    <div>Nguồn gốc: {{oil.origin}}</div>
+                                                    <div>Giá: {{oil.price}}</div>
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 pull-left">
+                                         
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-heart"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-share"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-shopping-cart"></i></md-icon>
+                                                </md-button>
+                                           
+                                        </div>
+
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+                            <!--end of oil-->
+
+                            <!--battery-->
+                            <div class="col-md-6" ng-repeat="battery in vm.relativeBatteryList.list" ng-show="vm.checkboxBattery">
+                                <md-card>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">Ắc quy {{battery.name}}</span>
+                                        </md-card-title-text>
+                                    </md-card-title>
+                                    <md-card-content layout="row">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <img class="img-responsive" ng-src="{{battery.image}}">
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div>Dung lượng: {{battery.capacity}}</div>
+                                                    <div>Kích thước: {{battery.dimension}}</div>
+                                                    <div>Giá: {{battery.price}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 pull-left">
+                                          
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-heart"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-share"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-shopping-cart"></i></md-icon>
+                                                </md-button>
+                                            
+                                        </div>
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+                            <!--end of battery-->
+
+                            <!--wheel-->
+                            <div class="col-md-6" ng-repeat="wheel in vm.relativeWheelList.list" ng-show="vm.checkboxWheel">
+                                <md-card>
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">Mâm xe {{wheel.size}}</span>
+                                        </md-card-title-text>
+                                    </md-card-title>
+                                    <md-card-content layout="row">
+                                        <div class="col-xs-10">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <img class="img-responsive" ng-src="{{wheel.image}}">
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div>Số lỗ: {{wheel.hole}}</div>
+                                                    <div>Giá: {{wheel.price}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 pull-left">
+                                           
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-heart"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-share"></i></md-icon>
+                                                </md-button>
+                                                <md-button class="md-icon-button" aria-label="Favorite">
+                                                    <md-icon><i class="fa fa-shopping-cart"></i></md-icon>
+                                                </md-button>
+                                            
+                                        </div>
+
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+                            <!--end of wheel-->
+                        </div>
+                    </md-content>
+
+                    <!--end of search result-->
+                </md-card>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

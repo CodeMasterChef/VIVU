@@ -1,0 +1,48 @@
+<section class="search-directive">
+  <div class="row">
+    <div class="col-md-6 search-box">
+      <div class="tab-search-items">
+        <div class="section-title section-title-search">Tìm kiếm sản phẩm cho xe</div>
+        <div>
+          <h4>Thông tin xe của bạn:</h4>
+          <form class="form-horizontal ng-pristine ng-valid">
+            <div class="form-group">
+              <label for="sel1" class="col-sm-3  control-label">Năm sản xuất:
+                    </label>
+              <div class="col-sm-9 ">
+                <select class="form-control" ng-model="vm.selectedYear" ng-change="vm.resetTradeMarkAndModel()" ng-options="year for year in vm.yearList track by year"
+                  id="sel1">
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sel2" class="col-sm-3 control-label">Thương hiệu:</label>
+              <div class="col-sm-9">
+                <select class="form-control" ng-disabled="vm.selectedYear === ''  " ng-change="vm.resetModel()" ng-model="vm.selectedTradeMark"
+                  ng-options="tradeMark for tradeMark in vm.tradeMarkList track by tradeMark" id="sel2">
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sel3" class="col-sm-3 control-label">Dòng xe:</label>
+              <div class="col-sm-9">
+                <select ng-disabled="vm.selectedTradeMark === ''" ng-model="vm.selectedModel" ng-options="model for model in vm.modelList track by model"
+                  class="form-control" id="sel3">
+                 </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-9 col-sm-offset-3">
+               <button  ng-click="vm.getRelativeInformation()" class=" form-control btn btn-info" >Tìm kiềm <i class="fa fa-search"></i></button>
+               <div ng-hide ="vm.emptyValueError === ''" class="label label-danger">{{vm.emptyValueError}}</div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+</section>
+

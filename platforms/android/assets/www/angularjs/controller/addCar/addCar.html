@@ -1,0 +1,20 @@
+<md-card md-theme-watch>
+	<md-card-title>
+		<md-card-title-media>
+		</md-card-title-media>
+		<md-card-title-text>
+			<span class="md-headline">Thêm thông tin xe</span>
+			<search-car-directive main-button-label="vm.mainButtonLabel" ng-init="vm.mainButtonLabel = 'Thêm'" output-selected-trademark="outputSelectedTrademark"
+				output-selected-model="outputSelectedModel">
+			</search-car-directive>
+		</md-card-title-text>
+	</md-card-title>
+	<md-card-actions>
+		<div class="container">
+			<div class="row  pull-right">
+				<md-button class="md-raised" href="#/home">Bỏ qua</md-button>
+				<md-button class="md-raised md-primary" ng-click="vm.addCar(outputSelectedTrademark,outputSelectedModel)">Thêm</md-button>
+			</div>
+		</div>
+	</md-card-actions>
+</md-card>

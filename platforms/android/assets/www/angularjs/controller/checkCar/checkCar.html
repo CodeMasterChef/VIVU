@@ -1,0 +1,31 @@
+<div class="container">
+	<h3 class="text-center">Danh sách xe cá nhân</h3>
+	<div class="row" ng-repeat="car in vm.carList">
+		<div class="col-md-12">
+			<md-card>
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{car.trademark}} {{car.model}}</span>
+						<!--<span class="md-subhead">Thông tin:</span>-->
+						<div><b>Xuất xứ: </b>{{car.origin}}</div>
+						<div><b>Năm sản xuất: </b>{{car.productionDate.substring(0,4)}}</div>
+						<div><b>Size bánh trước: </b>{{car.frontTire}}</div>
+						<div><b>Size bánh sau: </b>{{car.rearTire}}</div>
+					</md-card-title-text>
+					<md-card-title-media>
+						<div class="md-media-md card-media">
+							<img src="img/car/bmw-128i.jpg" class="img-responsive img-thumbnail">
+						</div>
+
+					</md-card-title-media>
+				</md-card-title>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button class="md-raised">Xóa</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+	</div>
+	<div class="row">
+		<md-button ui-sref="home.menu" class="md-raised md-accent">Trở lại</md-button>
+	</div>
+</div>

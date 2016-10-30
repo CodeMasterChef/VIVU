@@ -1,0 +1,54 @@
+.collapse {
+    background-color: black ;
+}
+
+
+.navbar-page .logo {
+    max-width: 60px;
+   
+}
+.navbar-page .center-logo {
+     margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: table-cell;
+    padding-top: 10px; 
+    max-height: 70px; 
+}
+.navbar-page .logo-container {
+     text-align: center;
+     color: white;
+}
+.navbar-page .logo-container img{
+     padding-top: 10px; 
+     max-height: 70px; 
+     margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: table-cell;
+}
+
+.navbar-page .logo {
+    max-width: 60px;
+    /*padding: 10px 0px 10px 10px;*/
+}
+.navbar-page .navbar-brand {
+   
+}
+
+
+.navbar-page .cart-amount-product{ 
+        display: block;
+    color: #fff;
+    font-weight: 700;
+    padding: 2px;
+    position: absolute;
+    top: 5px;
+    right: 80px;
+    z-index: 2;
+    line-height: 11px;
+    height: 14px;
+    font-size: 11px;
+    min-width: 14px;
+    background: #ff6c25;
+}
