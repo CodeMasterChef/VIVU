@@ -1,0 +1,38 @@
+<section id="itemList">
+	<h3>{{vm.allResources.heading}}</h3>
+	<div class="row" ng-show="vm.allResources.data.length > 0 ">
+		<form class="form">
+		<div class="row seach-box">
+			<div class="form-group">
+				<div class="col-md-1">
+					<label>Tìm kiếm:</label>
+				</div>
+				<div class="col-md-6">
+					<input class="form-control" placeholder="Gõ bất kì từ khóa gì về tên sản phẩm, giá ..." ng-model="vm.filterValue" ng-init="vm.filterValue =''">
+				</div>
+			</div>
+		</div>
+	</form>
+		<div class="col-md-6" ng-repeat="row in vm.allResources.data | filter :vm.filterValue track by $index  ">
+			<div class="row item-card">
+				<div class="col-xs-6">
+					<img ng-show="row.image !==null" class="img-responsive" ng-src="{{row.image}}" alt="{{row.name}}">
+					<img ng-show="row.image ==null" class="img-responsive" ng-src="{{vm.defaultimage}}">
+				</div>
+				<div class="col-xs-6">
+					<div ng-repeat="(key, value) in row">
+						<p ng-show="vm.allResources.title[key] !== undefined "> <b>{{ vm.allResources.title[key]}}:</b> {{value}}</p>
+					</div>
+					<button class="btn btn-info" ui-sref="cart" ng-click="vm.saveProductToLocalStorage(row.id , row.productTypeId )">Thêm vào giỏ hàng</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show="vm.allResources.canNotFindMessage !==''">
+		<div>
+			<span>{{vm.allResources.canNotFindMessage}}</span>
+			<button class="btn btn-danger pull-right"><i class="fa fa-phone" aria-hidden="true"></i> Gọi tư vấn trực tiếp 012342556</button>
+		</div>
+	</div>
+
+</section>

@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-9">
+            <div class="row visible-md visible-lg">
+                <div class="col-md-4">
+                    <b>Sản phẩm trong giỏ hàng</b>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4"><b>Đơn Giá</b></div>
+                        <div class="col-md-4"><b>Số lượng</b></div>
+                        <div class="col-md-4"><b>Thành tiền</b></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div ng-repeat="row in vm.resources">
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <img class="img-responsive" ng-src="{{row.image}}">
+                        <p class="cart-product-name">{{row.name}}</p>
+                        <div><button href="" class="btn btn-default pull-right" ng-click="vm.removeProduct(row.id, row.productTypeId)">Xóa</button></div>
+                    </div>
+                    <div class="col-xs-6 col-md-8">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-4">
+                                <span class="visible-xs-inline visible-sm-inline">
+                                 <strong>Đơn Giá:</strong>
+                                </span>
+                                <span> {{row.price}}</span>
+                            </div>
+
+                            <div class="col-xs-12 col-md-4">
+                                <span class="visible-xs-inline visible-sm-inline"><b>Số lượng:</b></span>
+                                <span>
+                                    <span class="input-group spinner">
+                                        <input type="number" min="1" max="1000" class="form-control" ng-model="row.amount" ng-change="vm.calculateTotalPrice();vm.saveAmountToLocalStorage(row.id, row.productTypeId , row.amount)">
+                                        <span class="input-group-btn-vertical">
+                                            <button class="btn btn-default" type="button" ng-click="row.amount = row.amount +1 ; vm.calculateTotalPrice();vm.saveAmountToLocalStorage(row.id, row.productTypeId , row.amount)">
+                                              <i class="fa fa-caret-up"></i>
+                                            </button>
+                                            <button class="btn btn-default" type="button" ng-click="row.amount = (row.amount-1 <= 1) ? 1: row.amount -1 ; vm.calculateTotalPrice();vm.saveAmountToLocalStorage(row.id, row.productTypeId , row.amount) ">
+                                            <i class="fa fa-caret-down"></i>
+                                            </button>
+                                        </span>
+                                </span>
+                                </span>
+                            </div>
+                            <div class="col-xs-12 col-md-4">
+                                <span class="visible-xs-inline visible-sm-inline"><b>Thành tiền: </b></span>
+                                <span> {{ row.price * row. amount}} </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                </div>
+
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-primary" ng-click="vm.goBackBeforePage()">
+                            <span><i class="fa fa-arrow-left"></i>Tiếp tục chọn sản phẩm</span>
+                        </button>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="row">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Thông tin đặt hàng</div>
+                    <div class="panel-body">
+                        <!--<div class="label label-info">Tổng cộng:</div>-->
+                        <div>Tổng cộng:<b> {{vm.totalPrice}} VND</b></div>
+                        <div>(Đã bao gồm VAT)</div>
+                        <hr>
+
+                        <form class="form">
+                            <div class="form-group">
+                                <label>Họ tên</label>
+                                <input type="text" class="form-control" ng-model="vm.createdUnknownOrder.fullName" placeholder="Nhập họ tên người đặt hàng">
+                                <label class="label label-danger form-control" ng-hide="vm.createdUnknownOrder.fullName !==''">{{vm.error.fullName}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input type="text" class="form-control"  ng-model="vm.createdUnknownOrder.mobile" placeholder="Nhập số điện thoại người đặt hàng">
+                                <label class="label label-danger form-control" ng-hide="vm.createdUnknownOrder.mobile !==''">{{vm.error.mobile}}</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ giao hàng</label>
+                                <input type="text" class="form-control" ng-model="vm.createdUnknownOrder.shipAddress " placeholder="Nhập địa chỉ giao hàng ">
+                                <label class="label label-danger form-control" ng-hide="vm.createdUnknownOrder.shipAddress !==''">{{vm.error.shipAddress}}</label>
+                            </div>
+
+                        </form>
+                        <hr>
+                        <button class="btn btn-danger form-control " ng-click="vm.createNewUnknownOrder() ">Đặt hàng</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  
+    <div class="row" style="height:10px" />
+</div>

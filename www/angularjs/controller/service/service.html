@@ -1,0 +1,160 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-9">
+			<md-card ng-repeat="service in vm.serviceList" ng-class="vm.choosenClass[$index]">
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{service.name}}</span>
+						<span class="md-subhead">{{service.description}}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-content>
+					<div ng-show="vm.checkChoose[$index] = vm.buttonTitle[$index] == 'Bỏ Chọn'" class="pull-right">
+						Số lượng:
+						<span class="input-group spinner">
+								<input type="number" min="1" max="1000" class="form-control" ng-model="service.amount">
+								<span class="input-group-btn-vertical">
+									<button class="btn btn-default" type="button" ng-click="service.amount = service.amount +1; vm.changeAmount($index, service.amount)">
+										<i class="fa fa-caret-up"></i>
+									</button>
+									<button class="btn btn-default" type="button" ng-click="service.amount = (service.amount-1 <= 1) ? 1: service.amount -1 ; (service.amount-1 <= 1) ? vm.changeAmount($index, 1): vm.changeAmount($index, service.amount)">
+									<i class="fa fa-caret-down"></i>
+									</button>
+								</span>
+						</span>
+					</div>
+				</md-card-content>
+				<md-card-actions layout="row" layout-align="end">
+					<md-button ng-click="vm.chooseService($index);">{{vm.buttonTitle[$index]}}</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<div class="panel panel-info">
+				<div class="panel-heading">Đặt lịch hẹn</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="form-group">
+							<label>
+								Danh xưng:
+							</label>
+							<input type="radio" name="sex" checked/>Anh <input type="radio" name="sex" />Chị
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label>
+								Họ tên:
+							</label>
+							<input class="form-control" type="text" placeholder="Nhập họ và tên..." />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label>
+								Số điện thoại:
+							</label>
+							<input class="form-control" type="number" placeholder="Nhập số điện thoại..." />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label>
+								Ngày hẹn:
+							</label>
+							<md-datepicker ng-model="myDate" md-placeholder="Enter date" md-min-date="vm.minDate"></md-datepicker>
+						</div>
+					</div>
+					<div class="row">
+						<label>Giờ hẹn:</label>
+						<ul class="donate-now">
+							<li>
+								<input type="radio" id="800" name="amount" checked/>
+								<label for="800">8:00</label>
+							</li>
+							<li>
+								<input type="radio" id="830" name="amount" />
+								<label for="830">8:30</label>
+							</li>
+							<li>
+								<input type="radio" id="900" name="amount" />
+								<label for="900">9:00</label>
+							</li>
+							<li>
+								<input type="radio" id="930" name="amount" />
+								<label for="930">9:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1000" name="amount" />
+								<label for="1000">10:00</label>
+							</li>
+							<li>
+								<input type="radio" id="1030" name="amount" />
+								<label for="1030">10:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1100" name="amount" />
+								<label for="1100">11:00</label>
+							</li>
+							<li>
+								<input type="radio" id="1130" name="amount" />
+								<label for="1130">11:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1200" name="amount" />
+								<label for="1200">12:00</label>
+							</li>
+							<li>
+								<input type="radio" id="1230" name="amount" />
+								<label for="1230">12:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1300" name="amount" />
+								<label for="1300">13:00</label>
+							</li>
+							<li>
+								<input type="radio" id="1330" name="amount" />
+								<label for="1330">13:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1430" name="amount" />
+								<label for="1430">14:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1500" name="amount" />
+								<label for="1500">15:00</label>
+							</li>
+							<li>
+								<input type="radio" id="1530" name="amount" />
+								<label for="1530">15:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1600" name="amount" />
+								<label for="1600">16:00</label>
+							</li>
+							<li>
+								<input type="radio" id="1630" name="amount" />
+								<label for="1630">16:30</label>
+							</li>
+							<li>
+								<input type="radio" id="1700" name="amount" />
+								<label for="1700">17:00</label>
+							</li>
+						</ul>
+					</div>
+					<div class="row">
+						<div class="form-group">
+							<label>
+							Yêu cầu khác (không bắt buộc):
+						</label>
+							<input type="text" class="form-control" placeholder="Nhập yêu cầu khác..." />
+						</div>
+					</div>
+					<div class="row">
+						<md-button class="md-raised md-primary pull-right">Đặt lịch</md-button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

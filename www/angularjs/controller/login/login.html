@@ -1,0 +1,74 @@
+<!--<div class="login container">
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Đăng nhập</div>
+				<div class="panel-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-sm-2">Tài khoản:</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" ng-model="vm.username" placeholder="Nhập tài khoản" required>
+								<p class="label label-danger">{{vm.error.username}}</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">Mật khẩu:</label>
+							<div class="col-sm-10">
+								<input class="form-control" ng-model="vm.password" placeholder="Nhập mật khẩu" type="password" required>
+								<p class="label label-danger">{{vm.error.password}}</p>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<p class="label label-danger">{{vm.error.result}}</p>
+								<div class="pull-left"><a href="" ui-sref="forgotPassword">Quên mật khẩu</a></div>
+								<div class="pull-right">
+									<button class="btn btn-primary" type="button" ng-click="vm.login()">Đăng nhập <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+								</div>
+
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->
+
+
+<div layout="row" layout-xs="column" layout-align="center center" id="login" layout-padding>
+	<div flex-gt-md="40" flex="100" class="login-form">
+		<md-content layout-padding>
+			<md-input-container class="md-block">
+				<input type="email" placeholder="Tên tài khoản" ng-required="true" ng-model="vm.username">
+				<p class="label label-danger">{{vm.error.username}}</p>
+			</md-input-container>
+			<md-input-container class="md-block">
+				<input type="password" placeholder="Mật khẩu" ng-required="true" ng-model="vm.password">
+				<p class="label label-danger">{{vm.error.password}}</p>
+			</md-input-container>
+			<div class="md-block" layout="column" layout-align="center center">
+				<md-input-container>  
+					<md-button class="md-raised my-color-button" ng-click="vm.login()">Đăng nhập</md-button>
+				</md-input-container>
+                	<p class="label label-danger">{{vm.error.result}}</p>
+			</div>
+			<div>
+				<a>Đặt lại mật khẩu</a>
+			</div>
+		</md-content>
+	</div>
+	<div flex-gt-md="20" flex="100" class="register-form" layout="column" layout-align="center center" layout-padding>
+		<div>
+			Hãy tham gia!
+		</div>
+		<div>
+			Mạng xã hội ô tô đã có mặt! Tiên phong trải nghiệm ngay hôm nay!
+		</div>
+		<div>
+			<md-button class="md-raised">Tham gia VIVU</md-button>
+		</div>
+	</div>
+</div>

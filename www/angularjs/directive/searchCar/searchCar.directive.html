@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+
+			<md-autocomplete md-selected-item="vm.selectedTrademark" md-search-text="vm.searchCarModel" md-floating-label="Hãng sản xuất"
+				md-items="item in vm.querySearch(vm.searchCarModel)" md-item-text="item.display" 
+				md-selected-item-change="vm.selectedTrademarkChange(vm.selectedTrademark)" 
+				md-require-match="true"
+				>
+				<span md-highlight-text="vm.searchCarModel">{{item.display}}</span>
+				<md-not-found>
+					Không tìm thấy "{{vm.searchCarModel}}".
+					<a ng-click="vm.newState(vm.searchCarModel)">Tạo cái mới!</a>
+				</md-not-found>
+			</md-autocomplete>
+
+
+			<md-autocomplete md-selected-item="vm.selectedModel" md-search-text="vm.searchModel" md-floating-label="Tên xe" md-items="item in vm.querySearchCarModel(vm.searchModel)"
+				md-item-text="item.display" md-selected-item-change="vm.selectedModelChange(vm.selectedModel)" md-require-match="true">
+				<span md-highlight-text="vm.searchModel">{{item.display}}</span>
+				<md-not-found>
+					Không tìm thấy "{{vm.searchModel}}".
+					<a ng-click="vm.newState(vm.searchModel)">Tạo cái mới!</a>
+				</md-not-found>
+			</md-autocomplete>
+
+			
+		</div>
+	</div>
+</div>

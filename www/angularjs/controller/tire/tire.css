@@ -1,0 +1,43 @@
+#tire .no-padding{
+    padding:0 ;
+}
+#tire .no-margin{
+    margin: 0;
+}
+#tire md-card{
+    margin-right: 3%;
+}
+#tire md-card-title{
+    margin: 0px;
+    padding:16px;
+}
+#tire .bold{
+    font-weight: bold;
+}
+#tire .tireContent{
+    vertical-align: middle;
+}
+#tire .buttonIcon{
+    margin: 0px;
+}
+#tire .padTop0{
+    padding-top: 0;
+    margin-top: 0;
+}
+#tire .btnSize{
+    font-size: 20px;
+}
+#tire .search{
+    margin: 0 3% 0 2%;
+}
+#tire .inputSearch{
+    margin-bottom:0;
+}
+#tire .notFound{
+    color: red;
+    
+}
+#tire .link{
+    color:#337ab7;
+    cursor:pointer;
+}

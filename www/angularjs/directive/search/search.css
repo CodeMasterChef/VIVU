@@ -1,0 +1,18 @@
+.search-directive {
+    margin: 100px 10px 30px 10px; 
+}
+.search-directive .search-box { 
+    background-color: rgba(1 , 1,1, 0.2) ; 
+}
+.search-directive .section-title-search , .search-directive form , .search-directive h4{
+    color: white ; 
+}
+
+.search-directive .item-list { 
+    margin-top: 150px ; 
+}
+
+.search-directive form .control-label { 
+        text-align: left ;
+        
+}

@@ -1,0 +1,114 @@
+<navbar-directive></navbar-directive>
+<br>
+<div id="service" class="padding-top-for-page">
+	<div class="container" id="itemList">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row item-card" ng-class="{ 'active-card-item' : service.choosen }" ng-repeat="service in vm.listService track by $index">
+					<div>
+						<div class="col-md-4">
+							<img class="img-responsive img-thumbnail" src="img/service/service1.jpg">
+						</div>
+						<div class="col-md-8">
+							<h1>{{service.name}}</h1>
+							<p>{{service.description}}</p>
+						</div>
+					</div>
+					<div>
+						<button class="btn btn-primary pull-right" ng-hide="service.choosen" ng-click="service.choosen = true">Chọn</button>
+						<div ng-show="service.choosen">
+							<form class="form-inline">
+								<button class="btn btn-danger pull-left" ng-click="service.choosen = false">Xóa </button>
+								<div class="pull-right">
+									<span><b>Số lượng:</b></span>
+									<span>
+                                    <span class="input-group spinner">
+                                        <input type="number" min="1" max="1000" class="form-control" ng-init="service.amount =1" ng-model="service.amount" ng-change="">
+                                        <span class="input-group-btn-vertical">
+                                            <button class="btn btn-default" type="button" ng-click="service.amount = service.amount +1;">
+                                              <i class="fa fa-caret-up"></i>
+                                            </button>
+                                            <button class="btn btn-default" type="button" ng-click="service.amount = (service.amount-1 <= 1) ? 1: row.amount -1 ; ">
+                                            <i class="fa fa-caret-down"></i>
+                                            </button>
+                                        </span>
+									</span>
+									</span>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Đặt lịch hẹn</h3>
+					</div>
+					<div class="panel-body">
+						<form class="form">
+							<div class="form-group form-inline">
+								<label for="">Danh xưng</label>
+								<span><input required type="radio" ng-model="vm.userInformation.prefix" value="Anh"  name="prefix" > Anh </span>
+								<span><input required type="radio" ng-modal="vm.userInformation.prefix" value="Chị" name="prefix" > Chị</span>
+							</div>
+
+							<div class="form-group">
+								<label for="">Họ tên</label>
+								<input type="text" required class="form-control" ng-model="vm.userInformation.name" placeholder="Nhập họ và tên của quý khách">
+							</div>
+							<div class="form-group">
+								<label for="">Số điện thoại</label>
+								<input type="text" class="form-control" ng-model="vm.userInformation.phone" placeholder="Nhập số điện thoại của quý khách">
+							</div>
+							<div class="form-group">
+								<label for="">Ngày hẹn</label>
+								<input type="date" ng-model="vm.userInformation.date" class="form-control">
+							</div>
+
+							<div class="form-group">
+								<div class=" container row">
+									<label>Giờ hẹn</label>
+									<ul class="donate-now">
+										<li>
+											<input type="radio" id="a800" ng-model="vm.userInformation.time" value="8:00" name="orderTime" />
+											<label for="a800">8:00</label>
+										</li>
+										<li>
+											<input type="radio" id="a830" value="8:30" name="orderTime" />
+											<label for="a830">8:30</label>
+										</li>
+										<li>
+											<input type="radio" id="a900" value="9:00" name="orderTime" />
+											<label for="a900">9:00</label>
+										</li>
+										<li>
+											<input type="radio" id="a930" value="9:30" name="orderTime" />
+											<label for="a930">9:30</label>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group">
+									<label for="">Yêu cầu khác (không bắt buộc)</label>
+									<input type="text" class="form-control" placeholder="Nhập yêu cầu khác của quý khách">
+								</div>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary" ng-click="vm.createOrder()">Đặt lịch</button>
+							</div>
+
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<footer-directive></footer-directive>
